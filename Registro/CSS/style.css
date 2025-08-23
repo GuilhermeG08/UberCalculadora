@@ -59,6 +59,20 @@
     background-color: blue;
 }
 
+.botaoVoltar {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(172, 209, 40);
+    width: 500px;
+    height: 40px;
+}
+
+.botaoVoltar:hover {
+    cursor: pointer;
+    background-color: rgb(84, 149, 0);
+}
+
 .containerContent {
     margin: 10px;
     padding: 0;
@@ -69,6 +83,8 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    flex-direction: column;
+    gap: 20px;
 }
 
 #h2Titulo {

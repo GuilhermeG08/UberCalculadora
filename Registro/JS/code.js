@@ -29,7 +29,7 @@ const escolhaRegistro = () => {
   btCusto.textContent = "REGISTRAR CUSTO";
 
   const img = document.createElement("img");
-  img.src = "../images/addition-color-icon.png";
+  img.src = "../images/subtract-color-icon.png";
   img.width = "70";
   btCusto.appendChild(img);
   
@@ -41,7 +41,7 @@ const escolhaRegistro = () => {
   btGanho.textContent = "REGISTRAR GANHO";
 
   const img2 = document.createElement("img");
-  img2.src = "../images/subtract-color-icon.png";
+  img2.src = "../images/addition-color-icon.png";
   img2.width = "70";
   btGanho.appendChild(img2);
   
@@ -143,6 +143,7 @@ const verifyInputsCusto = () => {
   }
 };
 
+//Função para completar o registro dos custos do usuário, transforma tudo em string com json e manda para o localstorage um array de objetos.
 btConcluirCusto.addEventListener("click", () => {
   let registroCustoObj = [{}];
   const returnFunction = verifyInputsCusto();
@@ -161,3 +162,4 @@ btConcluirCusto.addEventListener("click", () => {
     localStorage.setItem("registroCusto", JSON.stringify(novoRegistro));
   }
 });
+
