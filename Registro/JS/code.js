@@ -4,8 +4,8 @@ const inputAno = document.getElementById("inAno");
 const selectCombustivel = document.getElementById("selectCombustivel");
 const inputConsumo = document.getElementById("inConsumo");
 const btProximo = document.getElementById("botaoProximo");
-const containerFormulario = document.getElementById("containerPai");
-const containerRegistroCustos = document.getElementById("containerRegistroCusto");
+const containerFormulario = document.getElementById("containerInfoVeiculo");
+const containerRegistroCustos = document.getElementById("containerRegistroCustos");
 
 //Referencias do formulario de registro de custos.
 const inputTipoGasto = document.getElementById("selectTipoGasto");
@@ -29,7 +29,7 @@ const escolhaRegistro = () => {
   btCusto.textContent = "REGISTRAR CUSTO";
 
   const img = document.createElement("img");
-  img.src = "../../images/subtracao-vetor.webp";
+  img.src = "../images/addition-color-icon.png";
   img.width = "70";
   btCusto.appendChild(img);
   
@@ -41,7 +41,7 @@ const escolhaRegistro = () => {
   btGanho.textContent = "REGISTRAR GANHO";
 
   const img2 = document.createElement("img");
-  img2.src = "../../images/adicao-vetor.png";
+  img2.src = "../images/subtract-color-icon.png";
   img2.width = "70";
   btGanho.appendChild(img2);
   
@@ -86,10 +86,13 @@ const proximo = () => {
     }
 
     localStorage.setItem("acesso", "acessado")
-    localStorage.setItem("modeloVeiculo", inputModelo.value);
-    localStorage.setItem("anoVeiculo", inputAno.value);
-    localStorage.setItem("combustivelVeiculo", selectCombustivel.value);
-    localStorage.setItem("consumoVeiculo", inputConsumo.value);
+    let infoCarroObj = {};
+    infoCarroObj.modelo = inputModelo.value;
+    infoCarroObj.ano = Number(inputAno.value);
+    infoCarroObj.tipoCombustivel = selectCombustivel.value;
+    infoCarroObj.consumoMedio = Number(inputConsumo.value);
+    const infoCarroObjJSON = JSON.stringify(infoCarroObj);
+    localStorage.setItem("infoCarro", infoCarroObjJSON);
     load();
 };
 
@@ -141,11 +144,20 @@ const verifyInputsCusto = () => {
 };
 
 btConcluirCusto.addEventListener("click", () => {
-  console.log("oi")
+  let registroCustoObj = [{}];
   const returnFunction = verifyInputsCusto();
   if(returnFunction != undefined){
         alert(returnFunction);
         return;
     }
-    console.log("oi")
+  
+  if(localStorage.getItem("registroCusto")){
+    let registroObjeto = JSON.parse(localStorage.getItem("registroCusto"));
+    let novoRegistro = {tipoGasto: inputTipoGasto.value, formaPagamento: inputTipoPagamento.value, observacao: inputObservacao.value, data: inputDataCusto.value, valor: inputValorCusto.value};
+    registroObjeto.push(novoRegistro);
+    localStorage.setItem("registroCusto", JSON.stringify(registroObjeto));
+  }else{
+    let novoRegistro = [{tipoGasto: inputTipoGasto.value, formaPagamento: inputTipoPagamento.value, observacao: inputObservacao.value, data: inputDataCusto.value, valor: inputValorCusto.value}]; 
+    localStorage.setItem("registroCusto", JSON.stringify(novoRegistro));
+  }
 });
