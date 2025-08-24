@@ -145,3 +145,14 @@
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
 }
 
+#estiloRegistroGanhos {
+    background-color: rgba(128, 128, 128, 0.425);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+}

@@ -15,12 +15,22 @@ const inputDataCusto = document.getElementById("inDataCusto");
 const inputValorCusto = document.getElementById("inValorCusto");
 const btConcluirCusto = document.getElementById("btConcluirCusto");
 
+//Referencias do formulario de registro de ganhos.
+const inputValorGanho = document.getElementById("inValorGanho");
+const inputDataGanho = document.getElementById("inDataGanho");
+const selectAplicativo = document.getElementById("selectAplicativo");
+const inKmRodado = document.getElementById("inKm");
+const containerRegistroGanhos = document.getElementById("containerRegistroGanhos");
+const btConcluirGanho = document.getElementById("btConcluirGanho");
+
+containerRegistroGanhos.style.display = "none";
 containerFormulario.style.display = "none";
 containerRegistroCustos.style.display = "none";
 
 const escolhaRegistro = () => {
   containerFormulario.style.display = "none";
   containerRegistroCustos.style.display = "none";
+  containerRegistroGanhos.style.display = "none";
   const divPai = document.createElement("div");
   divPai.className = "divPaiButtons";
   document.body.appendChild(divPai);
@@ -57,7 +67,7 @@ const escolhaRegistro = () => {
   btGanho.onclick = function() {
     btGanho.style.display = "none"; 
     btCusto.style.display = "none";
-    //containerRegistroCustos.style.display = "flex";
+    containerRegistroGanhos.style.display = "flex";
 
   }
   divPai.appendChild(btGanho)
@@ -143,6 +153,30 @@ const verifyInputsCusto = () => {
   }
 };
 
+const verifyInputsGanho = () => {
+  let stringFinal = "";
+
+  if (inputValorGanho.value == "" || isNaN(inputValorGanho.value)) {
+    stringFinal += "Campo de valor do ganho inválido.\n";
+  }
+
+  if (inputDataGanho.value == "") {
+    stringFinal += "Campo de data inválido.\n";
+  }
+
+  if (selectAplicativo.value == "") {
+    stringFinal += "Campo de seleção de aplicativo inválido.\n";
+  }
+
+  if(inKmRodado.value == "" || isNaN(inKmRodado.value)){
+    stringFinal += "Campo de KM rodado inválido.\n";
+  }
+
+  if(stringFinal.length > 1){
+     return stringFinal;
+  }
+};
+
 //Função para completar o registro dos custos do usuário, transforma tudo em string com json e manda para o localstorage um array de objetos.
 btConcluirCusto.addEventListener("click", () => {
   let registroCustoObj = [{}];
@@ -163,3 +197,21 @@ btConcluirCusto.addEventListener("click", () => {
   }
 });
 
+btConcluirGanho.addEventListener("click", () => {
+  let registroGanhoObj = [{}];
+  const returnFunction = verifyInputsGanho();
+  if(returnFunction != undefined){
+        alert(returnFunction);
+        return;
+    }
+
+    if(localStorage.getItem("registroGanho")){
+      let registroObjeto = JSON.parse(localStorage.getItem("registroGanho"));
+      let novoRegistro = {valor: inputValorGanho.value, data: inputDataGanho.value, aplicativo: selectAplicativo.value, km: inKmRodado.value};
+      registroObjeto.push(novoRegistro);
+      localStorage.setItem("registroGanho", JSON.stringify(registroObjeto));
+    }else{
+      let novoRegistro = [{valor: inputValorGanho.value, data: inputDataGanho.value, aplicativo: selectAplicativo.value, km: inKmRodado.value}];
+      localStorage.setItem("registroGanho", JSON.stringify(novoRegistro));
+    }
+});
