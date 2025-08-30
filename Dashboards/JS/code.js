@@ -23,26 +23,39 @@ const exibicaoPainelResumo = () => {
     const dataFormatada = `${instanciaDate4}-${instanciaDate3padstart}-${instanciaDate2}`;
     
     const funcaoExibicaoGanhoHoje = () => {
-    registroGanhoObj.forEach(element => {
-        if(element.data == dataFormatada){
-            let index = element.data.indexOf(dataFormatada)
-            const valor = Number(registroGanhoObj[index].valor);
-            exibicaoGanhoHoje.innerText = `R$ ${valor.toFixed(2)}`;
-            }else{
-            exibicaoGanhoHoje.innerText = `R$ 0`;
+        let soma = 0;
+        for(let i = 0; i < registroGanhoObj.length; i++){
+            if(registroGanhoObj[i].data == dataFormatada){
+                soma += Number(registroGanhoObj[i].valor);
             }
-        });
+        }
+
+        if(soma > 0){
+            exibicaoGanhoHoje.innerText = `R$ ${soma}`;
+        }else{
+            exibicaoGanhoHoje.innerText = `R$ 0`
+        }
+
     }
     funcaoExibicaoGanhoHoje();
 
     const funcaoExibicaoGanhoMes = () => {
-        
+        let soma = 0;
+        for(let i = 0; i < registroGanhoObj.length; i++){
+            const mesBruto = new Date(registroGanhoObj[i].data);
+            const mesFinal = mesBruto.getMonth()+1;
+            if(mesFinal == instanciaDate3){
+                soma += Number(registroGanhoObj[i].valor);
+            }
+        }
 
-
-
+        if(soma > 0){
+            exibicaoGanhoMes.innerText = `R$ ${soma}`;
+        }else{
+            exibicaoGanhoMes.innerText = `R$ 0`;
+        }
     }
-    
-    
+    funcaoExibicaoGanhoMes();
 
     
 }
