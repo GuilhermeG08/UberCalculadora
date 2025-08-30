@@ -2,6 +2,7 @@ const graficoCustos = document.getElementById("graficoUm");
 const exibicaoGanhoHoje = document.getElementById("exibicaoGanhoHoje");
 const exibicaoGanhoMes = document.getElementById("exibicaoGanhoMes");
 const exibicaoCustosTotais = document.getElementById("exibicaoCustosTotais");
+const exibicaoGanhoPorKm = document.getElementById("exibicaoKmLitro");
 const exibicaoLucroLiquido = document.getElementById("exibicaoLucroLiquido");
 
 const exibicaoPainelResumo = () => {
@@ -54,10 +55,79 @@ const exibicaoPainelResumo = () => {
         }else{
             exibicaoGanhoMes.innerText = `R$ 0`;
         }
+        return soma;
     }
     funcaoExibicaoGanhoMes();
 
+
+    const funcaoCustosTotaisMes = () => {
+        let soma = 0;
+        for(let i = 0; i < registroCustoObj.length; i++){
+            const mesBruto = new Date(registroCustoObj[i].data);
+            const mesFinal = mesBruto.getMonth()+1;
+            if(mesFinal == instanciaDate3){
+                soma += Number(registroCustoObj[i].valor);
+            }
+        }
+
+        if(soma > 0){
+            exibicaoCustosTotais.innerText = `R$ -${soma}`;
+        }else{
+            exibicaoCustosTotais.innerText = `R$ -0`;
+        }
+        return soma;
+    }
+    funcaoCustosTotaisMes();
+
+    const funcaoGanhoPorKm = () => {
+        let soma = 0;
+        let somaValorMensal = 0;
+        for(let i = 0; i < registroGanhoObj.length; i++){
+            const mesBruto = new Date(registroGanhoObj[i].data);
+            const mesFinal = mesBruto.getMonth()+1;
+            if(mesFinal == instanciaDate3){
+                soma += Number(registroGanhoObj[i].km);
+                somaValorMensal += Number(registroGanhoObj[i].valor);
+            }
+        }
+
+        if(soma > 0){
+            exibicaoGanhoPorKm.innerText = `R$ ${(somaValorMensal/soma).toFixed(2)}`;
+        }else{
+            exibicaoGanhoPorKm.innerText = `R$ 0`;
+        }
+    }
+    funcaoGanhoPorKm();
+
+    const funcaoLucroLiquido = () => {
+        const retornoFuncaoGanhoMensal = funcaoExibicaoGanhoMes();
+        const retornoFuncaoCustosMensal = funcaoCustosTotaisMes();
+        let somaFinal = (retornoFuncaoGanhoMensal-retornoFuncaoCustosMensal).toFixed(2);
+        
+        if(somaFinal > 0){
+            exibicaoLucroLiquido.innerText = `R$ ${somaFinal}`;
+            exibicaoLucroLiquido.className = "estiloExibicao";
+        }else if(somaFinal < 0){
+            exibicaoLucroLiquido.innerText = `R$ -${somaFinal}`;
+            exibicaoLucroLiquido.className = "estiloExibicaoRed";
+        }else{
+            exibicaoLucroLiquido.innerText = "N/A";
+            exibicaoLucroLiquido.className = "estiloExibicaoRed";
+        }
+
+
+    }
+    funcaoLucroLiquido();
+}
+exibicaoPainelResumo();
+
+const funcaoExibicaoGraficos = () => {
     
+  
+
+
+
+
 }
 
-exibicaoPainelResumo();
+funcaoExibicaoGraficos();
