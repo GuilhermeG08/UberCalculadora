@@ -1,0 +1,70 @@
+.containerGeral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.estiloDiv {
+    background-color: rgba(128, 128, 128, 0.425);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+    margin-bottom: 50px;
+}
+
+.estiloCardInterno {
+    background-color: rgba(128, 128, 128, 0.425);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+}
+
+
+#painelResumo {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Para que as bordas se unam */
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr {
+  width: 100%;
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+  border: none;
+  background-color: transparent; /* Remove o fundo padrão dos inputs */
+}
+
+/* Opcional: Adicionar um estilo para o input focado */
+input:focus {
+  outline: 1px solid dodgerblue; /* Destaca a célula ao ser selecionada */
+}
+
+.estiloExibicao {
+  font-family: Roboto Mono, monospace;
+  font-size: 17px;
+  font-weight: 550;
+  color: rgb(0, 241, 0);
+  text-shadow: 1px 2px 2px black;
+}

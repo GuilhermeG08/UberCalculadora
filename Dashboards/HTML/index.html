@@ -2,9 +2,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
     <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
     rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <title>Dia+Dia</title>
 </head>
 <body>
@@ -21,7 +25,92 @@
   </div>
 </nav>
 
+  <div class="containerGeral">
+    <div>
+      <h2 class="estiloH2">Painel de Resumo</h2>
+    </div>
+    <div class="estiloDiv" id="painelResumo">
+      <div class="estiloCardInterno" id="ganhoHoje">
+        <h5 class="estiloH5">Ganhos Hoje</h5>
+        <span class="estiloExibicao" id="exibicaoGanhoHoje"></span>
+      </div>
+      <div class="estiloCardInterno" id="ganhoMes">
+        <h5 class="estiloH5">Ganhos no Mês</h5>
+        <span class="estiloExibicao" id="exibicaoGanhoMes"></span>
+      </div>
+      <div class="estiloCardInterno" id="custosTotais">
+        <h5 class="estiloH5">Custos Totais(mês)</h5>
+        <span class="estiloExibicao" id="exibicaoCustosTotais"></span>
+      </div>
+      <div class="estiloCardInterno" id="kmLitro">
+        <h5 class="estiloH5">KM por litro</h5>
+        <span class="estiloExibicao" id="exibicaoKmLitro"></span>
+      </div>
+      <div class="estiloCardInterno" id="lucroLiquido">
+        <h5 class="estiloH5">Lucro Líquido(mês)</h5>
+        <span class="estiloExibicao" id="exibicaoLucroLiquido"></span>
+      </div>
+    </div>
 
+    <div>
+      <h2 class="estiloH2">Gráficos</h2>
+    </div>
+    <div class="estiloDiv" id="graficos">
+      <canvas class="graficoIndividual" id="graficoUm"></canvas>
+      <canvas class="graficoIndividual" id="graficoDois"></canvas>
+    </div>
+
+    <div>
+      <h2 class="estiloH2">Dias rodados</h2>
+    </div>
+    <div class="estiloDiv" id="tabelaCorridas">
+      <form>
+  <table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Distância</th>
+      <th>Ganho</th>
+      <th>Custos</th>
+      <th>Lucro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>conteúdo da Data</td>
+      <td>conteúdo da Distância</td>
+      <td>conteúdo do Ganho</td>
+      <td>conteúdo dos Custos</td>
+      <td>conteúdo do Lucro</td>
+    </tr>
+    <tr>
+      <td>conteúdo da Data</td>
+      <td>conteúdo da Distância</td>
+      <td>conteúdo do Ganho</td>
+      <td>conteúdo dos Custos</td>
+      <td>conteúdo do Lucro</td>
+    </tr>
+    <tr>
+      <td>conteúdo da Data</td>
+      <td>conteúdo da Distância</td>
+      <td>conteúdo do Ganho</td>
+      <td>conteúdo dos Custos</td>
+      <td>conteúdo do Lucro</td>
+    </tr>
+    <tr>
+      <td>conteúdo da Data</td>
+      <td>conteúdo da Distância</td>
+      <td>conteúdo do Ganho</td>
+      <td>conteúdo dos Custos</td>
+      <td>conteúdo do Lucro</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../JS/code.js"></script>
 </body>
