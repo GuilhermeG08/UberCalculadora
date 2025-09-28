@@ -5,6 +5,7 @@ const exibicaoCustosTotais = document.getElementById("exibicaoCustosTotais");
 const exibicaoGanhoPorKm = document.getElementById("exibicaoKmLitro");
 const exibicaoLucroLiquido = document.getElementById("exibicaoLucroLiquido");
 const exibicaoDiaGraficos = document.getElementById("exibicaoDiaGrafico");
+const selectSemanas = document.getElementById("selectSemana");
 //Referencias do registro de custos
     const stringCustoObj = localStorage.getItem("registroCusto");
     const registroCustoObj = JSON.parse(stringCustoObj);
@@ -184,14 +185,13 @@ const funcaoExibicaoGraficos = () => {
         const primeiraData = new Date(objetoDiasTrabalhadosOrdenado[0].data);
         let diaSemana = primeiraData.getDay();
         let dataFinal;
-
         if(diaSemana == 1){
             dataFinal = new Date(primeiraData);
         }else if(diaSemana == 0){
             let segundaData = new Date(primeiraData);
             let diaMes = segundaData.getDate();
             let diaSemanaDois = segundaData.getDay();
-            for(let i = 6; i != 1; i--){
+            for(let i = 6; i != 0; i--){
                 segundaData.setDate(diaMes-1);
                 diaMes = diaMes-1;
                 diaSemanaDois = segundaData.getDay();
@@ -214,7 +214,7 @@ const funcaoExibicaoGraficos = () => {
                 }
             }
         }
-
+        
         //Aqui comeca o codigo para manipular a ultima data do objeto ordenado
         let ultimaData = new Date(objetoDiasTrabalhadosOrdenado[objetoDiasTrabalhadosOrdenado.length-1].data);
         while (ultimaData.getDay() != 1){
@@ -269,17 +269,16 @@ const funcaoExibicaoGraficos = () => {
         }
     }
 
-
     let vetorOrdenadoDiasTrabalhados = [{}];
     for(let i = 0; i < (retornoOrganizarDatas.length-1)/7; i++){
         vetorOrdenadoDiasTrabalhados[i] = {semana: i+1, dados: []};
     }
-    
+
     let acumulador = 0;
     for(let i = 0; i < vetorOrdenadoDiasTrabalhados.length; i++){
-        acumulador += 7;
         for(let j = 0; j < retornoOrganizarDatas.length; j++){
-            vetorOrdenadoDiasTrabalhados[i].dados.push({dia: j+1, data: retornoOrganizarDatas[j]});
+            acumulador += 1;
+            vetorOrdenadoDiasTrabalhados[i].dados.push({dia: j+1, data: retornoOrganizarDatas[acumulador]});
             if(vetorOrdenadoDiasTrabalhados[i].dados.length == 7){
                 break;
             }
@@ -290,8 +289,7 @@ const funcaoExibicaoGraficos = () => {
     }
 
     const retornoAdicionarCustoGanho = funcaoAdicionarCustoEganho();
-    console.log(retornoAdicionarCustoGanho);
-    
+    console.log(retornoAdicionarCustoGanho)
     
     
     
