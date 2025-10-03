@@ -128,10 +128,7 @@ exibicaoPainelResumo();
 const funcaoExibicaoGraficos = () => {
 
     const organizadorDatas = () => {
-        const diasDaSemana = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
-        const mesesDoAno = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-        let objetoDiasTrabalhados = []; //Esse é o objeto principal, nele estarao todos os dias trabalhados do usuario.
-        let lengthRegistro;
+        let objetoDiasTrabalhados = []; //Esse é o objeto principal, nele estarao todos os dias trabalhados do usuario
 
         //Condicional pra salvar o maior length, sendo do registro de custo ou de ganho
         if(registroCustoObj.length > registroGanhoObj.length){
@@ -291,6 +288,16 @@ const funcaoExibicaoGraficos = () => {
     const retornoAdicionarCustoGanho = funcaoAdicionarCustoEganho();
     console.log(retornoAdicionarCustoGanho)
     
+    const criadorSelectSemanas = (semanasTrabalhadas) => {
+        for(let i = 0; i < semanasTrabalhadas.length; i++){
+            let semanaAtual = semanasTrabalhadas[i];
+            let novaOpcao = document.createElement('option');
+            novaOpcao.value = semanaAtual.semana;
+            novaOpcao.textContent = `Semana ${semanaAtual.semana}`;
+            selectSemanas.appendChild(novaOpcao);
+        }
+    }
+    criadorSelectSemanas(retornoAdicionarCustoGanho);
     
     
     
@@ -325,6 +332,17 @@ const myChart = new Chart(ctx, {
     }
   }
 })
+
+selectSemanas.addEventListener('change', (e) => {
+        const valorSelecionado = e.target.value;
+        const semanaEncontrada = retornoAdicionarCustoGanho.find(semana => semana.semana == valorSelecionado);
+        let vetorVirgem = [];
+        for(let i = 0; i < 7; i++){
+            vetorVirgem.push(semanaEncontrada.dados[i].data.custo);
+        }
+        myChart.data.datasets[0].data = vetorVirgem;
+        myChart.update();
+    })
     
 
 };
