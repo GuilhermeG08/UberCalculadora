@@ -1,0 +1,145 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Registro/CSS/style.css">
+    <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet">
+    <title>Dia+Dia</title>
+</head>
+<body>
+    <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+  <div class="bg-dark p-4">
+    <a href="Dashboards/HTML/index.html" target="blank" class="text-body-emphasis h4 text-decoration-none">Dashboards</a>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+  
+  <div class="containerPai" id="containerInfoVeiculo">
+    <h2 id="h2Titulo">Registre as informações do seu veículo abaixo</h2>
+    <div id="formInfoInicial">
+      <div class="containerContent">
+        <p>Modelo do carro:</p>
+        <input type="text" name="" id="inModelo" class="input" placeholder="Digite o modelo do veículo" required autofocus>
+      </div>
+
+      <div class="containerContent">
+        <p>Ano do veículo:</p>
+        <input type="number" name="" placeholder="Digite o ano do veículo" step="1" required id="inAno" class="input">
+      </div>
+
+      <div class="containerContent">
+        <p>Tipo de combustível:</p>
+        <select name="" id="selectCombustivel">
+            <option value="" disabled selected hidden>Selecione uma opção</option>
+            <option value="gasolina">Gasolina</option>
+            <option value="alcool">Álcool</option>
+            <option value="gnv">Gás Natural Veícular</option>
+            <option value="diesel">Diesel</option>
+          </select>
+      </div>
+
+      <div class="containerContent">
+        <p>Consumo médio do veículo:</p>
+        <input type="number" name="" placeholder="Consumo de combustível" step="0.1" required class="input" id="inConsumo">
+      </div>
+      <div class="containerButton"><button type="button" id="btProximo" class="botaoProximo" onclick="proximo()">Próximo</button></div>
+    </div>
+  </div>
+
+  <div class="containerPai" id="containerRegistroGanhos">
+    <div id="estiloRegistroGanhos">
+      <div class="containerContent">
+        <p>Valor ganho</p>
+        <input type="number" name="" class="input" required step="0.01" id="inValorGanho">
+      </div>
+      <div class="containerContent">
+        <p>Data</p>
+        <input type="date" name="" id="inDataGanho" required class="input">
+      </div>
+      <div class="containerContent">
+        <p>Aplicativo usado</p>
+        <select name="" id="selectAplicativo" class="input">
+          <option value="" selected disabled hidden>Selecione uma opção</option>
+          <option value="uber">Uber</option>
+          <option value="99">99</option>
+        </select>
+      </div>
+      <div class="containerContent">
+        <p>Quilometragem rodada(KM)</p>
+        <input type="number" name="" required id="inKm" class="input" step="0.1">
+      </div>
+      <div class="containerButton">
+        <button type="button" id="btConcluirGanho" class="botaoProximo">Concluir</button>
+        <a href="index.html">
+        <button type="button" id="btVoltar" class="botaoVoltar">Voltar</button></a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="containerPai" id="containerRegistroCustos">
+    <div id="estiloRegistroCustos">
+      <div class="containerContent">
+        <p>Tipo de gasto</p>
+        <select name="" id="selectTipoGasto" class="input">
+          <option value="" selected disabled hidden>Selecione uma opção</option>
+          <option value="combustivel">Combustível ⛽</option>
+          <option value="manutencao">Manutenção 🛠️(troca de óleo, revisão, pastilhas)</option>
+          <option value="seguro">Seguro 🛡️</option>
+          <option value="celular">Plano de celular 📱</option>
+          <option value="financiamento">Financiamento / Parcela do carro 🏦</option>
+          <option value="documentos">Documentação 🧾(IPVA, licenciamento, multas)</option>
+          <option value="lavagem">Lavagem do carro 🧼</option>
+          <option value="outros">Outros custos 📉</option>
+        </select>
+      </div>
+
+      <div class="containerContent">
+        <p>Forma de pagamento(opcional)</p>
+        <select name="" id="selectTipoPagamento" class="input">
+          <option value="" selected disabled hidden>Selecione uma opção</option>
+          <option value="dinheiro">Dinheiro 💵</option>
+          <option value="cartao">Cartão 💳</option>
+          <option value="pix">Pix 📱</option>
+        </select>
+      </div>
+
+      <div class="containerContent">
+        <p>Observação(opcional)</p>
+        <input type="text" name="" class="input" id="inObservacao" placeholder="Registre uma observação. Exemplo: Troca de óleo + filtro.">
+      </div>
+
+      <div class="containerContent">
+        <p>Data</p>
+        <input type="date" class="input" name="" id="inDataCusto">
+      </div>
+
+      <div class="containerContent">
+        <p>Valor do custo</p>
+        <input type="number" class="input" name="" id="inValorCusto" step="0.01" inputmode="decimal" value="0">
+      </div>
+      <div class="containerButton">
+        <button type="button" id="btConcluirCusto" class="botaoProximo">Concluir</button>
+        <a href="index.html">
+        <button type="button" id="btVoltar" class="botaoVoltar">Voltar</button></a>
+      </div>
+        
+        
+    </div>
+  </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Registro/JS/code.js"></script>
+</body>
+</html>

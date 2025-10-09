@@ -1,0 +1,91 @@
+.containerGeral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.estiloDiv {
+    background-color: rgba(128, 128, 128, 0.425);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+    margin-bottom: 50px;
+}
+
+.estiloCardInterno {
+    background-color: rgba(128, 128, 128, 0.425);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+}
+
+
+#painelResumo {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+/* Opcional: Adicionar um estilo para o input focado */
+input:focus {
+  outline: 1px solid dodgerblue; /* Destaca a célula ao ser selecionada */
+}
+
+.estiloExibicao {
+  font-family: Roboto Mono, monospace;
+  font-size: 17px;
+  font-weight: 550;
+  color: rgb(0, 241, 0);
+  text-shadow: 1px 2px 2px black;
+}
+
+.estiloExibicaoRed {
+  font-family: Roboto Mono, monospace;
+  font-size: 17px;
+  font-weight: 550;
+  color: rgb(255, 0, 0);
+  text-shadow: 1px 2px 2px black;
+}
+
+.graficoIndividual {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.tabela-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 400px;
+  max-height: 300px;
+  border: 1px solid #ccc;
+  padding-top: 0;
+  margin-bottom: 50px;
+}
+
+.tabela-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-container th,
+.tabela-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tabelaCabeca {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}

@@ -1,0 +1,158 @@
+.containerPai {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#formInfoInicial {
+    background-color: rgba(128, 128, 128, 0.425);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+}
+
+.input {
+    width: 500px;
+    height: 50px;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.37);
+    outline: none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 5px;
+}
+
+.input:focus {
+    border-color: blue;
+}
+
+#selectCombustivel {
+    width: 500px;
+    height: 50px;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.37);
+}
+
+#selectCombustivel:focus {
+    border-color: blue;
+}
+
+.botaoProximo {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(51, 85, 180);
+    width: 500px;
+    height: 40px;
+}
+
+.botaoProximo:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+.botaoVoltar {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(172, 209, 40);
+    width: 500px;
+    height: 40px;
+}
+
+.botaoVoltar:hover {
+    cursor: pointer;
+    background-color: rgb(84, 149, 0);
+}
+
+.containerContent {
+    margin: 10px;
+    padding: 0;
+}
+
+.containerButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#h2Titulo {
+    margin-bottom: 50px;
+}
+
+.registerButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    border: none;
+    color: white;
+    background-color: rgba(15, 15, 15, 0.507);
+    gap: 20px;
+    width: fit-content;
+    height: fit-content;
+    padding: 30px;
+    font-size: 40px;
+    font-family: "Consolas";
+    font-weight: bold;
+    box-shadow: 2px 3px 10px black;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+}
+
+.registerButton img {
+    transition: transform 0.4s ease;
+}
+
+.registerButton:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.74);
+}
+
+.registerButton:hover img {
+    transform: scale(1.4);
+    transform: rotate(180deg);
+}
+
+.divPaiButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#estiloRegistroCustos {
+    background-color: rgba(128, 128, 128, 0.425);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+}
+
+#estiloRegistroGanhos {
+    background-color: rgba(128, 128, 128, 0.425);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+}

@@ -1,0 +1,93 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>Dia+Dia</title>
+</head>
+<body>
+    <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+  <div class="bg-dark p-4">
+    <a href="../../index.html" target="blank" class="text-body-emphasis h4 text-decoration-none">Registro de Custos</a>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+  <div class="containerGeral">
+    <div>
+      <h2 class="estiloH2">Painel de Resumo</h2>
+    </div>
+    <div class="estiloDiv" id="painelResumo">
+      <div class="estiloCardInterno" id="ganhoHoje">
+        <h5 class="estiloH5">Ganhos Hoje</h5>
+        <span class="estiloExibicao" id="exibicaoGanhoHoje"></span>
+      </div>
+      <div class="estiloCardInterno" id="ganhoMes">
+        <h5 class="estiloH5">Ganhos no Mês</h5>
+        <span class="estiloExibicao" id="exibicaoGanhoMes"></span>
+      </div>
+      <div class="estiloCardInterno" id="custosTotais">
+        <h5 class="estiloH5">Custos Totais(mês)</h5>
+        <span class="estiloExibicaoRed" id="exibicaoCustosTotais"></span>
+      </div>
+      <div class="estiloCardInterno" id="kmLitro">
+        <h5 class="estiloH5">Ganho por KM(mês)</h5>
+        <span class="estiloExibicao" id="exibicaoKmLitro"></span>
+      </div>
+      <div class="estiloCardInterno" id="lucroLiquido">
+        <h5 class="estiloH5">Lucro Líquido(mês)</h5>
+        <span class="estiloExibicao" id="exibicaoLucroLiquido"></span>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="estiloH2">Gráficos</h2>
+    </div>
+    <div class="estiloDiv" id="graficos">
+      <select name="selectSemana" id="selectSemana">
+        <option value="vazio" selected disabled>Selecione uma semana</option>
+      </select>
+      <h3 class="estiloH2" id="dataPorData"></h3>
+      <h2 class="estiloH2" id="exibicaoDiaGrafico"></h2>
+      <canvas class="graficoIndividual" id="graficoUm"></canvas>
+      <canvas class="graficoIndividual" id="graficoDois"></canvas>
+    </div>
+
+    <div>
+      <h2 class="estiloH2">Dias rodados</h2>
+    </div>
+    <div class="tabela-container">
+  <table id="tabelaFull">
+  <thead class="tabelaCabeca">
+    <tr>
+      <th>Data</th>
+      <th>Distância</th>
+      <th>Ganho</th>
+      <th>Custos</th>
+      <th>Lucro</th>
+    </tr>
+  </thead>
+  <tbody class="tabelaCorpo" id="tabelaCorpo">
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/code.js"></script>
+</body>
+</html>
