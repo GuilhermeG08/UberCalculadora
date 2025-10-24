@@ -77,6 +77,14 @@ A plataforma possui duas abas principais:
 
 ---
 
+## Futuro do Projeto(em andamento)
+* Adição do back-end(nodeJS)
+* Integração com banco de dados
+* Autenticação segura
+* Conexão com BOT de WhatsApp para permitir registros por mensagens de aúdio 
+
+---
+
 ## Autor
 
 **Guilherme Gomes**
